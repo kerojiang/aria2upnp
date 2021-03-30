@@ -1,0 +1,2 @@
+# aria2upnp
+aria2默认不支持upnp,根据配置文件为aria2自动增加upnp设置
