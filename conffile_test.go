@@ -10,6 +10,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 	"testing"
 )
 
@@ -23,8 +24,8 @@ func TestConfFile_GetBTPort(t *testing.T) {
 		t.Fail()
 	}
 
-	fmt.Fprintln(cf1.GetBTPort())
-	fmt.Fprintln(cf1.Get())
+	fmt.Println(strconv.Itoa(cf1.GetBTPort()))
+	//fmt.Println(strconv.Itoa(cf1.GetDHCPort()))
 
 	file2 := "/home/jie/.config/aria2/aria2.sh"
 	cf2 := NewConfFile(file2)
@@ -33,30 +34,14 @@ func TestConfFile_GetBTPort(t *testing.T) {
 		fmt.Println("测试2,初始化conffile失败")
 		t.Fail()
 	}
+	if cf2.GetBTPort() != 0 {
+		fmt.Println(strconv.Itoa(cf2.GetBTPort()))
+	} else {
+		t.Fail()
+	}
 
 }
 
 func TestConfFile_GetDHCPort(t *testing.T) {
-	type fields struct {
-		_filepath string
-		_content  string
-	}
-	tests := []struct {
-		name   string
-		fields fields
-		want   string
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			cf := &ConfFile{
-				_filepath: tt.fields._filepath,
-				_content:  tt.fields._content,
-			}
-			if got := cf.GetDHCPort(); got != tt.want {
-				t.Errorf("ConfFile.GetDHCPort() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+
 }
