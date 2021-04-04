@@ -35,7 +35,7 @@ func main() {
 				err := mapping.AddPortMapping(btPort, btPort, "TCP")
 				if err != nil {
 					if err.Error() == "未发现网关设备" {
-						fmt.Println("bt端口映射异常,请检查防火墙设置")
+						fmt.Println("bt端口映射异常,请检查防火墙设置,允许upnp相关端口")
 					} else {
 						fmt.Println("bt端口映射异常", err)
 					}
@@ -47,7 +47,7 @@ func main() {
 				err = mapping.AddPortMapping(dhcPort, dhcPort, "UDP")
 				if err != nil {
 					if err.Error() == "未发现网关设备" {
-						fmt.Println("dhc端口映射异常,请检查防火墙设置")
+						fmt.Println("dhc端口映射异常,请检查防火墙设置,允许upnp相关端口")
 					} else {
 						fmt.Println("dhc端口映射异常", err)
 					}
