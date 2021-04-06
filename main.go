@@ -15,11 +15,14 @@ import (
 	"github.com/prestonTao/upnp"
 )
 
-func main() {
-	//文件路径
-	var filePath string
+//文件路径
+var filePath string
 
+func init() {
 	flag.StringVar(&filePath, "f", "", "指定的aria2配置文件路径")
+}
+
+func main() {
 
 	flag.Parse()
 
