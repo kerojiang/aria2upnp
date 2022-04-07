@@ -83,7 +83,13 @@ func (cf *ConfFile) GetBTPort() int {
 // @return:
 func (cf *ConfFile) findPort(portName string) int {
 	cf.readFile()
-	for _, line := range strings.Split(cf._content, "\n") {
+
+	flag := "\n"
+	if strings.Contains(cf._content, "\r\n") {
+		flag = "\r\n"
+	}
+
+	for _, line := range strings.Split(cf._content, flag) {
 
 		result := strings.Trim(line, " ")
 
